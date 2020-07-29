@@ -1,8 +1,8 @@
-import Navbar from '../../components/Navbar';
 
-const Portfolios = () => {
+const Portfolios = ({ testingData }: { testingData: string }) => {
   return (
     <>
+      <p>{testingData}</p>
       <section className='section-title'>
         <div className='px-2'>
           <div className='pt-5 pb-4'>
