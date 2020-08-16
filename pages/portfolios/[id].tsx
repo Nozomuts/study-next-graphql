@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { IPortfolio } from '../../Types';
 
 const fetchPortfolioById = (id: string) => {
   const query = `
@@ -23,7 +24,7 @@ const fetchPortfolioById = (id: string) => {
     .then((data) => data.portfolio);
 };
 
-const PortfolioDetail = ({ portfolio }: any) => {
+const PortfolioDetail = ({ portfolio }: {portfolio: IPortfolio}) => {
   return (
     <div className='portfolio-detail'>
       <div className='container'>
