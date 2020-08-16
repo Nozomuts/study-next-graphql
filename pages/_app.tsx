@@ -3,14 +3,14 @@ import App from 'next/app';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.scss';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import Navbar from '../components/shared/Navbar';
+import Hero from '../components/shared/Hero';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <div className='portfolio-app'>
       <Navbar />
-      {pageProps.appData}
+      {/* {pageProps.appData} */}
       {Component.name === 'Home' && <Hero />}
       <div className='container'>
         <Component {...pageProps} />
@@ -19,11 +19,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-MyApp.getInitialProps = async (context: any) => {
-  const initialProps =
-    App.getInitialProps && (await App.getInitialProps(context));
+// MyApp.getInitialProps = async (context: any) => {
+//   const initialProps =
+//     App.getInitialProps && (await App.getInitialProps(context));
 
-  return { pageProps: { appData: 'Hello _App Component', ...initialProps } };
-};
+//   return { pageProps: { appData: 'Hello _App Component', ...initialProps } };
+// };
 
 export default MyApp;
