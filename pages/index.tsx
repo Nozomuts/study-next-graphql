@@ -159,7 +159,7 @@ const Home = () => {
           </div>
           <div className='submit-area'>
             <div className='send mr-auto'>
-              <button href='#' className='btn btn-main bg-blue py-2 ttu'>
+              <button className='btn btn-main bg-blue py-2 ttu'>
                 Reply
               </button>
               <a className='btn py-2 ttu gray-10'>Cancel</a>
