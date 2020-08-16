@@ -1,5 +1,6 @@
 import axios from 'axios';
 import PortfolioCard from '../../components/portfolios/PortfolioCard';
+import Link from 'next/link';
 
 const fetchPortfolios = () => {
   const query = `
@@ -19,7 +20,7 @@ const fetchPortfolios = () => {
   return axios
     .post('http://localhost:3000/graphql', { query })
     .then(({ data: graph }) => graph.data)
-    .then((data) => data.portfolios)
+    .then((data) => data.portfolios);
 };
 
 const Portfolios = ({ portfolios }: any) => {
@@ -34,11 +35,15 @@ const Portfolios = ({ portfolios }: any) => {
       </section>
       <section className='pb-5'>
         <div className='row'>
-          {portfolios.map((portfolio: any) =>
+          {portfolios.map((portfolio: any) => (
             <div key={portfolio._id} className='col-md-4'>
-              <PortfolioCard portfolio={portfolio} />
+              <Link href='/portfolios/[id]' as={`/portfolios/${portfolio._id}`}>
+                <a className='card-link'>
+                  <PortfolioCard portfolio={portfolio} />
+                </a>
+              </Link>
             </div>
-          )}
+          ))}
         </div>
       </section>
     </>
